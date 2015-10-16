@@ -16,7 +16,7 @@ import java.io.*;
 import java.lang.String;
 import java.lang.Integer;
 
-public class Main {
+public class Lights {
 
     public static void main(String[] args) {
 
