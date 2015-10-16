@@ -1,6 +1,6 @@
 # LiFxAmbientLights
 
-My very first Java app, an ambient light for LiFx.
+My very first Java app, an ambient light for LiFx.  Fair warning the code is extremely sloppy, i did this app purely as a learning project and had absolutely no Java experience before i attempted this.
 
 ### Basic Info
 
@@ -22,6 +22,15 @@ Selectors:
 "group:name" - where name is the label of a group.
 
 For more: http://api.developer.lifx.com/docs/selectors
+
+### Todo
+ - [] Use local WiFi instead of HTTP API
+ - [] Figure out why the colour flickers when changing sometimes
+ - [] Vastly improve code quality
+ - [] Learn more Java
+ - [] Get light settings before starting and revert to them when exiting app
+ - [] Make a GUI to configure the options rather then passing them as arguments via console
+ - [] Add Brightness option
 
 
 ### License
