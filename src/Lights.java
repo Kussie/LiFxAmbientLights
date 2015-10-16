@@ -1,3 +1,10 @@
+/*
+Created by Ben Kuskopf
+MIT License
+October 16 2015
+
+ */
+
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Robot;

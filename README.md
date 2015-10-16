@@ -1,6 +1,8 @@
 # LiFxAmbientLights
 
-My very first java app, an ambient light for LiFx.
+My very first Java app, an ambient light for LiFx.
+
+### Basic Info
 
 Download the JAR:
 https://github.com/Kussie/LiFxAmbientLights/raw/master/jar/Lights.jar
@@ -20,3 +22,8 @@ Selectors:
 "group:name" - where name is the label of a group.
 
 For more: http://api.developer.lifx.com/docs/selectors
+
+
+### License
+
+This application is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
