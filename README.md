@@ -2,6 +2,9 @@
 
 My very first java app, an ambient light for LiFx.
 
+Download the JAR:
+https://github.com/Kussie/LiFxAmbientLights/raw/master/jar/Lights.jar
+
 
 To Run:
 java -jar Lights.jar api_token bulb_selector screen_width screen_height
