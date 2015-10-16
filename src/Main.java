@@ -94,7 +94,7 @@ public class Main {
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
                     httpCon.setDoOutput(true);
                     httpCon.setRequestMethod("PUT");
-                    httpCon.setRequestProperty  ("Authorization", "Bearer c01f44819384a6da224503bedd1f0fc77c8fa6bf99be4f28fd289b9e1e849852");
+                    httpCon.setRequestProperty  ("Authorization", "Bearer <token>");
                     OutputStreamWriter out = new OutputStreamWriter(
                             httpCon.getOutputStream());
                     out.write("{\"color\": \"rgb:"+r+","+g+","+b+"\",\n" +
