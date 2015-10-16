@@ -136,7 +136,7 @@ public class Lights {
                     OutputStreamWriter out = new OutputStreamWriter(
                             httpCon.getOutputStream());
                     out.write("{\"color\": \"rgb:"+r+","+g+","+b+"\",\n" +
-                            "  \"brightness\": 0.8,\n" +
+                            "  \"brightness\": 0.7,\n" +
                             "  \"duration\": 0.5}");
                     out.close();
                     BufferedReader in = new BufferedReader(
