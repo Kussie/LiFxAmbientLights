@@ -24,13 +24,13 @@ Selectors:
 For more: http://api.developer.lifx.com/docs/selectors
 
 ### Todo
- - [] Use local WiFi instead of HTTP API
- - [] Figure out why the colour flickers when changing sometimes
- - [] Vastly improve code quality
- - [] Learn more Java
- - [] Get light settings before starting and revert to them when exiting app
- - [] Make a GUI to configure the options rather then passing them as arguments via console
- - [] Add Brightness option
+ - [ ] Use local WiFi instead of HTTP API
+ - [ ] Figure out why the colour flickers when changing sometimes
+ - [ ] Vastly improve code quality
+ - [ ] Learn more Java
+ - [ ] Get light settings before starting and revert to them when exiting app
+ - [ ] Make a GUI to configure the options rather then passing them as arguments via console
+ - [ ] Add Brightness option
 
 
 ### License
