@@ -137,7 +137,7 @@ public class Lights {
                             httpCon.getOutputStream());
                     out.write("{\"color\": \"rgb:"+r+","+g+","+b+"\",\n" +
                             "  \"brightness\": 0.8,\n" +
-                            "  \"duration\": 1}");
+                            "  \"duration\": 0.5}");
                     out.close();
                     BufferedReader in = new BufferedReader(
                             new InputStreamReader(
@@ -150,7 +150,9 @@ public class Lights {
                     System.out.println("Sent API Request");
 
                 } catch (Exception e) {
+                    System.out.println("LiFX API error");
                     e.printStackTrace();
+                    exit(0);
                 }
 
                 screenshot.flush();
