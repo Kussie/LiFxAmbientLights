@@ -2,4 +2,10 @@
 
 My very first java app, an ambient light for LiFx.
 
-In Main.java replace <your token> with your API token from the cloud site and run the app via the console.
+
+To Run:
+java Lights.jar <api token> <selector> <screen width> <screen height>
+
+For example:
+java Lights.jar <api token> all 2560 1440
+

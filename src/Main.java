@@ -13,35 +13,80 @@ import java.awt.Dimension;
 import java.util.List;
 import java.net.*;
 import java.io.*;
+import java.lang.String;
+import java.lang.Integer;
 
 public class Main {
 
     public static void main(String[] args) {
 
+
+        if (args.length != 4) {
+            System.out.println("Improper usage.  Lights <token> <selector> <screen width> <screen height>");
+            exit(0);
+        }
+
+        // Most of the below is left over, i couldn't figure out how to make default arguments for all of them all except the token.  And it didn't throw it's own error either.  I need more java skills
+        // Token
+        String lifxToken = "";
+        if ( args[0].length()<0) {
+            System.out.println("You must supply a token");
+            exit(0);
+         } else {
+            lifxToken = args[0];
+        }
+
+        // Light selector
+        String lifxSelector = "";
+        if ( args[1].length()<0) {
+            System.out.println("You must supply a lifx bulb selector");
+            exit(0);
+        } else {
+            lifxSelector = args[1];
+        }
+
+        // Screen size
+        int screenW = 1920;
+        if ( args[2].length()<0) {
+            System.out.println("You must supply a screen width");
+            exit(0);
+        } else {
+            screenW = Integer.parseInt(args[2]);
+        }
+
+        int screenH = 1080;
+        if ( args[3].length()<0) {
+            System.out.println("You must supply a screen height");
+            exit(0);
+        } else {
+            screenH = Integer.parseInt(args[3]);
+        }
+
+        // Colour selection box
+        int boxW = 200;
+        //if ( args[4].length()<0) {
+        //    boxW = Integer.parseInt(args[4]);
+        //}
+
+        int boxH = 200;
+        //if ( args[5].length()<0) {
+        //    boxH = Integer.parseInt(args[5]);
+        //}
+
+        //How many pixels to skip while reading (the more you skip, it runs faster, but result might get worse)
+        int pixelSkip = 2;
+        //if ( args[6].length()<0) {
+        //    pixelSkip = Integer.parseInt(args[6]);
+        //}
+
+        // Define the box where we want to capture and analyse colour from
+        // The start point of the box (top and left coordinate)
+        int boxL = (screenW+boxW)/2;
+        int boxT = (screenH+boxH)/2;
+
         try {
             while(true) {
                 long millis = System.currentTimeMillis();
-
-
-
-                // Put the right screen size in here
-                int screenW=2560;
-                int screenH=1440;
-
-                // Preview window size
-                int windowW=100;
-                int windowH=100;
-
-                // Define the box where we want to capture and analyse colour from
-// The start point of the box (top and left coordinate)
-                int boxL=1025; // That's the middle of the screen
-                int boxT=767;
-                // Size of the box
-                int boxW=100;
-                int boxH=100;
-
-                //How many pixels to skip while reading (the more you skip, it runs faster, but result might get worse)
-                int pixelSkip=2;
 
                 // Screen Area to be captured (usually the whole screen)
                 Rectangle dispBounds;
@@ -81,20 +126,13 @@ public class Main {
                 g=g/(boxH/pixelSkip*boxW/pixelSkip);
                 b=b/(boxH/pixelSkip*boxW/pixelSkip);
 
-        /*color rgb=color((short)r,(short)g,(short)b);
-        fill(rgb);
-        rect(0,0,100,100);
-
-        println(frameRate);*/
-                System.out.println(r);
-                System.out.println(g);
-                System.out.println(b);
+                System.out.println("rgb: "+r+","+g+","+b);
                 try {
-                    URL url = new URL("https://api.lifx.com/v1/lights/all/state");
+                    URL url = new URL("https://api.lifx.com/v1/lights/"+lifxSelector+"/state");
                     HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
                     httpCon.setDoOutput(true);
                     httpCon.setRequestMethod("PUT");
-                    httpCon.setRequestProperty  ("Authorization", "Bearer <token>");
+                    httpCon.setRequestProperty  ("Authorization", "Bearer "+lifxToken);
                     OutputStreamWriter out = new OutputStreamWriter(
                             httpCon.getOutputStream());
                     out.write("{\"color\": \"rgb:"+r+","+g+","+b+"\",\n" +
@@ -115,20 +153,13 @@ public class Main {
                     e.printStackTrace();
                 }
 
+                screenshot.flush();
 
                 Thread.sleep(1000 - millis % 1000);
             }//While
 
-
-
-
-
-
         }
-        catch (java.lang.InterruptedException e) {
-            e.printStackTrace();
-        }
-        catch (AWTException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
 
