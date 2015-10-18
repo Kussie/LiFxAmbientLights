@@ -5,30 +5,27 @@ October 16 2015
 
  */
 
-import java.awt.AWTException;
-import java.awt.Color;
-import java.awt.Robot;
-import java.awt.*;
-import java.awt.image.*;
-import static java.lang.System.*;
-import java.awt.Robot; //java library that lets us take screenshots
-import java.awt.AWTException;
-import java.awt.event.InputEvent;
-import java.awt.image.BufferedImage;
-import java.awt.Rectangle;
+import static java.lang.System.exit;
+
 import java.awt.Dimension;
-import java.util.List;
-import java.net.*;
-import java.io.*;
-import java.lang.String;
-import java.lang.Integer;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+//java library that lets us take screenshots
 
 public class Lights {
 
     public static void main(String[] args) {
 
 
-        if (args.length != 4) {
+        if (args.length < 2) {
             System.out.println("Improper usage.  Lights <token> <selector> <screen width> <screen height>");
             exit(0);
         }
@@ -54,17 +51,15 @@ public class Lights {
 
         // Screen size
         int screenW = 1920;
-        if ( args[2].length()<0) {
-            System.out.println("You must supply a screen width");
-            exit(0);
+        if ( args.length < 3 || args[2].length()<0) {
+            screenW = Toolkit.getDefaultToolkit().getScreenSize().width;
         } else {
             screenW = Integer.parseInt(args[2]);
         }
 
         int screenH = 1080;
-        if ( args[3].length()<0) {
-            System.out.println("You must supply a screen height");
-            exit(0);
+        if ( args.length < 4 || args[3].length()<0) {
+            screenH = Toolkit.getDefaultToolkit().getScreenSize().height;
         } else {
             screenH = Integer.parseInt(args[3]);
         }
