@@ -24,7 +24,7 @@ public class Lights {
     public static void main(String[] args) {
 
 
-        if (args.length < 2) {
+        if (args.length < 1) {
             System.out.println("Improper usage.  Lights <token> <selector> <screen width> <screen height>");
             exit(0);
         }
@@ -41,9 +41,8 @@ public class Lights {
 
         // Light selector
         String lifxSelector = "";
-        if ( args[1].length()<0) {
-            System.out.println("You must supply a lifx bulb selector");
-            exit(0);
+        if ( args.length < 2 || args[1].length()<0) {
+        	lifxSelector = "all";
         } else {
             lifxSelector = args[1];
         }
